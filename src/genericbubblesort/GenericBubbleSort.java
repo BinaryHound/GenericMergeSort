@@ -34,12 +34,12 @@ public class GenericBubbleSort {
         E temp;
         for(int i = 0; i < list.length; i++){
             for(int x = 1; x < list.length; x++){
-                
+                if(comparator.compare(list[i], list[x]) > 1){
+                    temp = list[x];
+                    list[x] = list[i];
+                    list[i] = temp;
+                }
             }
         }
-        
-        
     }
-    
-    
 }
