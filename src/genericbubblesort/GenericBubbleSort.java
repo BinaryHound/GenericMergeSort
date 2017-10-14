@@ -17,14 +17,15 @@ public class GenericBubbleSort {
     }
     
     public static <E extends Comparable<E>> void bubbleSort(E[] list){
-        E temp;
+        boolean needNextPass = true;
         //Bubble sorts the list in ascending order.
-        for(int i = 0; i < list.length; i++){
-            for(int x = 1; x < list.length; x++){
-                if(list[i].compareTo(list[x]) > 1){
-                    temp = list[x];
-                    list[x] = list[i];
-                    list[i] = temp;
+        for(int i = 1; i < list.length && needNextPass; i++){
+            needNextPass = false;
+            for(int x = 0; x < list.length - i; x++){
+                if(list[x].compareTo(list[x + 1]) > 1){
+                    E temp = list[x];
+                    list[x] = list[x + 1];
+                    list[x + 1] = temp;
                 } 
             }
         }
