@@ -21,11 +21,11 @@ public class GenericBubbleSort {
         //Bubble sorts the list in ascending order.
         for(int i = 1; i < list.length && needNextPass; i++){
             needNextPass = false;
-            for(int x = 0; x < list.length; x++){
-                if(list[i].compareTo(list[x]) > 1){
+            for(int x = 0; x < list.length - i; x++){
+                if(list[x].compareTo(list[x + 1]) > 1){
                     E temp = list[x];
-                    list[x] = list[i];
-                    list[i] = temp;
+                    list[x] = list[x + 1];
+                    list[x + 1] = temp;
                 } 
             }
         }
