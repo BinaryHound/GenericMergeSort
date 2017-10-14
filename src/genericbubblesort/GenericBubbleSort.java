@@ -31,13 +31,12 @@ public class GenericBubbleSort {
     }
     
     public static <E> void bubbleSort(E[] list, Comparator<? super E> comparator){
-        E temp;
         boolean needNextPass = true;
-        for(int i = 0; i < list.length && needNextPass; i++){
+        for(int i = 1; i < list.length && needNextPass; i++){
             needNextPass = false;
-            for(int x = 1; x < list.length - i; x++){
+            for(int x = 0; x < list.length - i; x++){
                 if(comparator.compare(list[x], list[x + 1]) > 1){
-                    temp = list[x + 1];
+                    E temp = list[x + 1];
                     list[x] = list[x + 1];
                     list[x + 1] = temp;
                     needNextPass = false;
